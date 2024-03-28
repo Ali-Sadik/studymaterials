@@ -1,415 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Importing Manrope font -->
-    <style>
-      html {
-        box-sizing: border-box;
-        overflow-x: hidden;
-        scroll-behavior: smooth;
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Importing Manrope font -->
+  <style>
+    html {
+      box-sizing: border-box;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    *,
+    *:after,
+    *:before {
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      min-width: 350px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      color: #000;
+
+      &::-webkit-scrollbar-track {
+        background-color: #f5f5f5;
       }
 
-      *,
-      *:after,
-      *:before {
-        box-sizing: border-box;
+      &::-webkit-scrollbar {
+        width: 5px;
+        background-color: #f5f5f5;
       }
 
-      body {
-        position: relative;
-        min-width: 350px;
-        font-family: "Manrope", sans-serif;
-        font-size: 14px;
+      &::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: #41b93c;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      padding: 15px 15px;
+    }
+
+    .nav {
+  position: sticky;
+  top: 10px;
+  z-index: 999;
+  transition: .25s;
+  max-width: 1000px;
+  margin: 15px auto 0 auto;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
+
+  @media (max-width: 1200px) {
+    max-width: 900px;
+  }
+
+  @media (max-width: 991px) {
+    top: 0;
+    max-width: 100%;
+    border-radius: 0;
+  }
+}
+
+.nav__course {
+  list-style: none;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  @media (max-width: 767px) {
+    justify-content: flex-start;
+  }
+
+  li {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 0 10px;
+
+    a {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      padding: 0 10px;
+      text-decoration: none;
+      transform: scale(1);
+      transition: .25s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      span {
+        font-size: 12px;
         color: #000;
-
-        &::-webkit-scrollbar-track {
-          background-color: #f5f5f5;
-        }
-
-        &::-webkit-scrollbar {
-          width: 5px;
-          background-color: #f5f5f5;
-        }
-
-        &::-webkit-scrollbar-thumb {
-          border-radius: 5px;
-          background-color: #41b93c;
-        }
-      }
-
-      h1 {
         text-align: center;
-        padding: 15px 15px;
+        line-height: 1.4;
+        white-space: nowrap;
       }
 
-      .nav {
-        position: sticky;
-        top: 10px;
-        z-index: 999;
-        transition: 0.25s;
-        max-width: 1000px;
-        margin: 15px auto 0 auto;
-        background: rgba(255, 255, 255, 0.75);
-        border-radius: 15px;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(5px);
+      img {
+        width: 40px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
 
-        @media (max-width: 1200px) {
-          max-width: 900px;
-        }
+
+    .container {
+      margin: 0 auto;
+      padding: 0 15px;
+      max-width: 1140px;
+
+      @media (max-width: 1200px) {
+        max-width: 980px;
+      }
+    }
+
+    .section__course {
+      position: relative;
+      z-index: 10;
+      padding: 30px 0 30px 0;
+
+      .course__title {
+        position: relative;
+        z-index: 3;
+        overflow: hidden;
+        margin-top: 0;
+        padding: 60px 30px;
+        font-size: 30px;
+        text-align: center;
+        color: #fff;
+        border-radius: 15px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        transition: .25s;
 
         @media (max-width: 991px) {
-          top: 0;
-          max-width: 100%;
-          border-radius: 0;
+          font-size: 26px;
+          padding: 45px 30px;
         }
-      }
-
-      .nav__course {
-        list-style: none;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        padding: 0;
-        overflow-x: auto;
-        overflow-y: hidden;
 
         @media (max-width: 767px) {
-          justify-content: flex-start;
-        }
-
-        li {
-          position: relative;
-          display: flex;
-          flex-flow: column;
-          align-items: center;
-          padding: 0 10px;
-
-          a {
-            display: flex;
-            flex-flow: column;
-            justify-content: center;
-            align-items: center;
-            width: auto;
-            padding: 0 10px;
-            text-decoration: none;
-            transform: scale(1);
-            transition: 0.25s;
-
-            &:hover {
-              transform: scale(1.1);
-            }
-
-            span {
-              font-size: 12px;
-              color: #000;
-              text-align: center;
-              line-height: 1.4;
-              white-space: nowrap;
-            }
-
-            img {
-              width: 40px;
-              margin-bottom: 10px;
-            }
-          }
-        }
-      }
-
-      .container {
-        margin: 0 auto;
-        padding: 0 15px;
-        max-width: 1140px;
-
-        @media (max-width: 1200px) {
-          max-width: 980px;
-        }
-      }
-
-      .section__course {
-        position: relative;
-        z-index: 10;
-        padding: 30px 0 30px 0;
-
-        .course__title {
-          position: relative;
-          z-index: 3;
-          overflow: hidden;
-          margin-top: 0;
-          padding: 60px 30px;
-          font-size: 30px;
+          font-size: 20px;
           text-align: center;
-          color: #fff;
-          border-radius: 15px;
-          background-repeat: no-repeat;
-          background-size: cover;
-          background-position: center center;
-          transition: 0.25s;
+          padding: 30px 15px;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.2);
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+        }
+      }
+
+      .course__list {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0 -15px;
+        transition: .25s;
+
+        @media (max-width: 991px) {
+          margin: 0 -10px;
+        }
+
+        .course__item {
+          flex: 0 0 25%;
+          padding: 15px;
 
           @media (max-width: 991px) {
-            font-size: 26px;
-            padding: 45px 30px;
+            flex: 0 0 33.333333%;
+            padding: 10px;
           }
 
           @media (max-width: 767px) {
-            font-size: 20px;
-            text-align: center;
-            padding: 30px 15px;
+            flex: 0 0 50%;
           }
 
-          &:before {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            left: 0;
-            width: 100%;
+          .course__item__wrap {
             height: 100%;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-          }
-        }
+            border: 1px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: .25s;
 
-        .course__list {
-          display: flex;
-          flex-flow: row wrap;
-          margin: 0 -15px;
-          transition: 0.25s;
-
-          @media (max-width: 991px) {
-            margin: 0 -10px;
-          }
-
-          .course__item {
-            flex: 0 0 25%;
-            padding: 15px;
-
-            @media (max-width: 991px) {
-              flex: 0 0 33.333333%;
-              padding: 10px;
+            &:hover {
+              box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+              border: 1px solid rgba(255, 255, 255, 0.3);
             }
+          }
+
+          .course__img {
+            display: flex;
+
+            img {
+              width: 100%;
+              transform: scale(1) rotate(0);
+              transition: .25s;
+            }
+          }
+
+          .course__content {
+            padding: 0 15px 25px 15px;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+          }
+
+          .course__name {
+            margin: 10px 0;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.4;
+            text-align: center;
 
             @media (max-width: 767px) {
-              flex: 0 0 50%;
+              font-size: 14px;
             }
 
-            .course__item__wrap {
-              height: 100%;
-              border: 1px solid #eee;
-              border-radius: 15px;
-              overflow: hidden;
-              transition: 0.25s;
+            a {
+              text-decoration: none;
+              color: #000;
+              transition: .25s;
 
               &:hover {
-                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-              }
-            }
-
-            .course__img {
-              display: flex;
-
-              img {
-                width: 100%;
-                transform: scale(1) rotate(0);
-                transition: 0.25s;
-              }
-            }
-
-            .course__content {
-              padding: 0 15px 25px 15px;
-              display: flex;
-              flex-flow: column;
-              align-items: center;
-            }
-
-            .course__name {
-              margin: 10px 0;
-              font-size: 16px;
-              font-weight: 500;
-              line-height: 1.4;
-              text-align: center;
-
-              @media (max-width: 767px) {
-                font-size: 14px;
-              }
-
-              a {
-                text-decoration: none;
-                color: #000;
-                transition: 0.25s;
-
-                &:hover {
-                  color: #41b93c;
-                }
+                color: #41b93c;
               }
             }
           }
+
         }
       }
 
-      #ece1110 {
-        .course__title {
-          background-image: url("https://studymaterialskuetece002.files.wordpress.com/2024/02/ece-lab--1.jpg");
-        }
-      }
+    }
 
-      #eee1110 {
-        .course__title {
-          background-image: url("https://studymaterialskuetece002.files.wordpress.com/2024/02/pexels-led-supermarket-577514.jpg");
-        }
+    #ece1110 {
+      .course__title {
+        background-image: url('https://studymaterialskuetece002.files.wordpress.com/2024/02/ece-lab--1.jpg');
       }
+    }
 
-      #ph1110 {
-        .course__title {
-          background-image: url("https://studymaterialskuetece002.files.wordpress.com/2024/02/anoushka-puri-f1yfrz1o2r8-unsplash.jpg");
-        }
+    #eee1110 {
+      .course__title {
+        background-image: url('https://studymaterialskuetece002.files.wordpress.com/2024/02/pexels-led-supermarket-577514.jpg');
       }
-    </style>
-  </head>
+    }
 
-  <body>
-    <div class="nav">
-      <ul class="nav__course">
-        <li>
-          <a href="#ece1110"
-            ><img
-              src="https://studymaterialskuetece002.files.wordpress.com/2024/03/multimeter.png"
-              alt=""
-            /><span>ECE 1110</span></a
-          >
-        </li>
-        <li>
-          <a href="#eee1110"
-            ><img
-              src="https://studymaterialskuetece002.files.wordpress.com/2024/03/electrical-energy.png"
-              alt=""
-            /><span>EEE 1110</span></a
-          >
-        </li>
-        <li>
-          <a href="#ph1110"
-            ><img
-              src="https://studymaterialskuetece002.files.wordpress.com/2024/03/physics.png"
-              alt=""
-            /><span>Ph 1110</span></a
-          >
-        </li>
-      </ul>
+    #ph1110 {
+      .course__title {
+        background-image: url('https://studymaterialskuetece002.files.wordpress.com/2024/02/anoushka-puri-f1yfrz1o2r8-unsplash.jpg');
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <ul class="nav__course">
+      <li><a href="#ece1110"><img src="https://studymaterialskuetece002.files.wordpress.com/2024/03/multimeter.png"
+            alt=""><span>ECE 1110</span></a></li>
+      <li><a href="#eee1110"><img
+            src="https://studymaterialskuetece002.files.wordpress.com/2024/03/electrical-energy.png"
+            alt=""><span>EEE 1110</span></a></li>
+      <li><a href="#ph1110"><img src="https://studymaterialskuetece002.files.wordpress.com/2024/03/physics.png" alt=""><span>Ph 1110</span></a></li>
+    </ul>
+  </div>
+
+  <section class="section__course" id="ece1110">
+    <div class="container">
+      <h2 class="course__title">Introduction to ECE</h2>
+      <div class="course__list">
+        <div class="course__item">
+          <div class="course__item__wrap">
+            <a href="https://drive.google.com/file/d/14wTv5L_j1n6v9QYTet3PuDh79NWEqShU/view" class="course__img">
+              <img src="https://studymaterialskuetece002.files.wordpress.com/2024/03/kisspng-breadboard-electronic-circuit-electronics-power-co-half-size-breadboard-digilent-5babaeffaf85b5.8782552615379781117189.png" alt="">
+            </a>
+            <div class="course__content">
+              <h3 class="course__name">
+                <a href="https://drive.google.com/file/d/14wTv5L_j1n6v9QYTet3PuDh79NWEqShU/view">Familiarization with the various electronic components, equipment and measuring instruments.</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <section class="section__course" id="ece1110">
-      <div class="container">
-        <h2 class="course__title">Introduction to ECE</h2>
-        <div class="course__list">
-          <div class="course__item">
-            <div class="course__item__wrap">
-              <a
-                href="https://drive.google.com/file/d/14wTv5L_j1n6v9QYTet3PuDh79NWEqShU/view"
-                class="course__img"
-              >
-                <img
-                  src="https://studymaterialskuetece002.files.wordpress.com/2024/03/kisspng-breadboard-electronic-circuit-electronics-power-co-half-size-breadboard-digilent-5babaeffaf85b5.8782552615379781117189.png"
-                  alt=""
-                />
-              </a>
-              <div class="course__content">
-                <h3 class="course__name">
-                  <a
-                    href="https://github.com/Ali-Sadik/studymaterials/blob/StudyMaterials/1st.html"
-                    >Familiarization with the various electronic components,
-                    equipment and measuring instruments.</a
-                  >
-                </h3>
-              </div>
+  </section>
+  <section class="section__course" id="eee1110">
+    <div class="container">
+      <h2 class="course__title">Basic Electrical Engineering</h2>
+      <div class="course__list">
+        <div class="course__item">
+          <div class="course__item__wrap">
+            <a href="https://drive.google.com/file/d/1MX-4n2sKpOmy6CezkMEbCQoPy1oFt1D-/view" class="course__img">
+              <img src="https://studymaterialskuetece002.files.wordpress.com/2024/03/image-photoroom.png-photoroom-4.png" alt="">
+            </a>
+            <div class="course__content">
+              <h3 class="course__name">
+                <a href="https://drive.google.com/file/d/1MX-4n2sKpOmy6CezkMEbCQoPy1oFt1D-/view">Superposition theorem</a>
+              </h3>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <section class="section__course" id="eee1110">
-      <div class="container">
-        <h2 class="course__title">Basic Electrical Engineering</h2>
-        <div class="course__list">
-          <div class="course__item">
-            <div class="course__item__wrap">
-              <a
-                href="https://drive.google.com/file/d/1MX-4n2sKpOmy6CezkMEbCQoPy1oFt1D-/view"
-                class="course__img"
-              >
-                <img
-                  src="https://studymaterialskuetece002.files.wordpress.com/2024/03/image-photoroom.png-photoroom-4.png"
-                  alt=""
-                />
-              </a>
-              <div class="course__content">
-                <h3 class="course__name">
-                  <a
-                    href="https://drive.google.com/file/d/1MX-4n2sKpOmy6CezkMEbCQoPy1oFt1D-/view"
-                    >Superposition theorem</a
-                  >
-                </h3>
-              </div>
+    </div>
+  </section>
+  <section class="section__course" id="ph1110">
+    <div class="container">
+      <h2 class="course__title">Physics laboratory</h2>
+      <div class="course__list">
+        <div class="course__item">
+          <div class="course__item__wrap">
+            <a href="https://drive.google.com/file/d/1Q8eErrr4u4GY16sfKKWFVunN3D8ltlE8/view" class="course__img">
+              <img src="https://studymaterialskuetece002.files.wordpress.com/2024/03/screenshot-2024-03-21-233744.png" alt="">
+            </a>
+            <div class="course__content">
+              <h3 class="course__name">
+                <a href="https://drive.google.com/file/d/1Q8eErrr4u4GY16sfKKWFVunN3D8ltlE8/view">Photoelectric effect</a>
+              </h3>
             </div>
           </div>
         </div>
       </div>
-    </section>
-    <section class="section__course" id="ph1110">
-      <div class="container">
-        <h2 class="course__title">Physics laboratory</h2>
-        <div class="course__list">
-          <div class="course__item">
-            <div class="course__item__wrap">
-              <a
-                href="https://drive.google.com/file/d/1Q8eErrr4u4GY16sfKKWFVunN3D8ltlE8/view"
-                class="course__img"
-              >
-                <img
-                  src="https://studymaterialskuetece002.files.wordpress.com/2024/03/screenshot-2024-03-21-233744.png"
-                  alt=""
-                />
-              </a>
-              <div class="course__content">
-                <h3 class="course__name">
-                  <a
-                    href="https://drive.google.com/file/d/1Q8eErrr4u4GY16sfKKWFVunN3D8ltlE8/view"
-                    >Photoelectric effect</a
-                  >
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-          anchor.addEventListener("click", function (e) {
-            e.preventDefault();
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
 
-            const target = document.querySelector(this.getAttribute("href"));
+          const target = document.querySelector(this.getAttribute('href'));
 
-            if (target) {
-              window.scrollTo({
-                top: target.offsetTop,
-                behavior: "smooth",
-              });
-            }
-          });
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop,
+              behavior: 'smooth'
+            });
+          }
         });
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
