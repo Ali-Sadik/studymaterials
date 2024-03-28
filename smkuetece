@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyMaterials</title>
+<style>
+* {
+     margin: 0px;
+     padding: 0px;
+     box-sizing: border-box;
+}
+html {
+     font-size: 10px;
+     font-family: 'Manrope', sans-serif;
+
+}
+body {
+     overflow-x: hidden;
+}
+header {
+     width: 100%;
+     position: absolute;
+     top: 0%;
+     left: 0%;
+     z-index: 1000;
+}
+.main-nav {
+     width: 100%;
+     height: 10rem;
+     padding: 0rem 2.5rem;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+}
+.logo a {
+     font-family: 'Manrope', sans-serif;
+     font-size: 1.6rem;
+     text-decoration: none;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     outline: 2px solid #fff;
+     padding: 1rem 2rem;
+     color: #fff;
+}
+.hamburger-menu {
+     width: 5rem;
+     height: 5rem;
+     background-color: #fff;
+     border-radius: 0.4rem;
+     box-shadow: 0.5rem 0.5rem 1rem #cacaca,-0.5rem -0.5rem 1rem #fff;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 2000;
+}
+.hamburger-menu:hover {
+     box-shadow: inset 0.5rem 0.5rem 1rem #cacaca,inset -0.5rem -0.5rem 1rem #fff;
+}
+.bar {
+     width: 3rem;
+     height: 2px;
+     background-color: #333;
+     display: inline-block;
+     position: relative;
+     transition: background-color 0.5s;
+}
+.bar::before,.bar::after {
+     content: '';
+     position: absolute;
+     width: inherit;
+     height: inherit;
+     background-color: #333;
+     transition: all 0.5s;
+}
+.bar::before {
+     top: -0.8rem;
+}
+.bar::after {
+     top: 0.8rem;
+}
+.open .bar {
+     background-color: transparent;
+}
+.open .bar::before {
+     top: 0rem;
+     transform: rotate(135deg);
+}
+.open .bar::after {
+     top: 0rem;
+     transform: rotate(-135deg);
+}
+.nav-list {
+     width: 50rem;
+     height: 100vh;
+     position: absolute;
+     top: 0px;
+     right: 0px;
+     z-index: 1500;
+     background-color: #eee;
+     box-shadow: -0.5rem 0rem 1rem rgba(0,0,0,0.1);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-around;
+     transform: translateX(55rem);
+     transition: transform 0.5s;
+}
+.open .nav-list {
+     transform: translateX(0rem);
+}
+.nav-item {
+     list-style: none;
+     border-bottom: 2px solid crimson;
+}
+.nav-link {
+     text-decoration: none;
+     text-transform: uppercase;
+     padding: 0.5rem;
+     display: block;
+     color: #333;
+     font-size: 1.6rem;
+     font-weight: 700;
+     transition: color 0.5s;
+}
+.nav-link:hover {
+     color: crimson;
+}
+.hero {
+     width: 100%;
+     height: 100vh;
+     background-image: url('https://studymaterialskuetece002.files.wordpress.com/2024/03/home-2.jpg');
+     background-repeat: no-repeat;
+     background-position: center;
+     background-size: cover;
+     position: relative;
+}
+.hero::after {
+     content: '';
+     position: absolute;
+     top: 0px;
+     left: 0px;
+     width: inherit;
+     height: inherit;
+     background-color: rgba(0,0,0,0.5);
+}
+.hero-clipped {
+     width: 60%;
+     height: inherit;
+     background-color: #fff;
+     position: absolute;
+     top: 0px;
+     right: 0px;
+     z-index: 10;
+     clip-path: polygon(20% 0%,100% 0%,100% 100%,0% 100%);
+     transform-origin: right;
+}
+.hero-textbox {
+     width: 100%;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     z-index: 20;
+     transform: translate(-50%,-50%);
+     font-family: 'Manrope', sans-serif;
+     text-transform: uppercase;
+     text-align: center;
+     line-height: 1.5;
+     color: #333;
+     padding: 1rem;
+}
+.main-heading {
+     font-size: 6rem;
+     font-weight: 900;
+     letter-spacing: 1rem;
+}
+.sub-heading {
+     font-size: 1.6rem;
+     font-weight: 400;
+     letter-spacing: 0.5rem;
+}
+.cta-button {
+     display: inline-block;
+     font-size: 1.2rem;
+     letter-spacing: 1px;
+     text-decoration: none;
+     background-color: #00a750;
+     color: #fff;
+     margin-top: 5rem;
+     padding: 1rem 4rem;
+     border-radius: 0.4rem;
+     box-shadow: 3px 3px 1rem rgba(0,0,0,0.3);
+     position: relative;
+}
+.cta-button::after {
+     content: "";
+     position: absolute;
+     top: 0%;
+     left: 0%;
+     z-index: -1;
+     width: 100%;
+     height: 100%;
+     background-color: inherit;
+     border-radius: inherit;
+}
+.cta-button:hover::after {
+     transform: scaleX(1.2) scaleY(1.6);
+     opacity: 0;
+     transition: all 0.5s;
+}
+@media only screen and (max-width:1400px){
+     .hero-clipped {
+          width: 100%;
+          height: 75vh;
+          clip-path: polygon(0% 0%,100% 0%,100% 100%,0% 60%);
+     }
+     .logo a {
+          color: #333;
+          outline-color: #333;
+     }
+}
+@media only screen and (max-width:760px){
+     .nav-list {
+          width: 30rem;
+     }
+     .main-heading {
+          font-size: 4rem;
+     }
+     .sub-heading {
+          font-size: 1.2rem;
+     }
+     .cta-button {
+          padding: 1rem 2.5rem;
+     }
+}
+@media only screen and (max-width:550px){
+     .main-heading {
+          font-size: 2.5rem;
+     }
+     .sub-heading {
+          font-size: 1rem;
+     }
+     .cta-button {
+          margin-top: 3rem;
+     }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet"> <!-- Importing Manrope font -->
+</head>
+<body>
+     <header>
+          <nav class="main-nav">
+               <div class="logo"></div>
+               <div class="hamburger-menu"><span class="bar"></span></div>
+               <ul class="nav-list">
+                    <li class="nav-item"><a href="https://www.kuet.ac.bd/department/ECE/" class="nav-link">KUET ECE</a></li>
+<li class="nav-item"><a href="mailto:contactsiliconx@gmail.com" class="nav-link">Contact us</a></li>
+<li class="nav-item"><a href="https://sites.google.com/view/teamsiliconx/home" class="nav-link">About us</a></li>
+               </ul>
+          </nav>
+     </header>
+     <section class="hero">
+          <div class="hero-clipped">
+               <div class="hero-textbox">
+                    <h1 class="main-heading">Welcome to StudyMaterials</h1>
+                    <h2 class="sub-heading">Please login to continue</h2>
+                    <a href="https://sites.google.com/view/smkuetece/login" class="cta-button">Get Started</a>
+               </div>
+          </div>
+     </section>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+     <script>
+          const mainNav = document.querySelector('.main-nav');
+          const hamburgerMenu = document.querySelector('.hamburger-menu');
+          hamburgerMenu.addEventListener('click', () => {
+               mainNav.classList.toggle('open');
+          });
+          gsap.fromTo('.hero-clipped', {scaleX: 0}, {duration: 1, scaleX: 1});
+          gsap.fromTo('.logo', {x: 200, opacity: 0}, {duration: 1, delay: 0.5, x: 0, opacity: 1});
+          gsap.fromTo('.hamburger-menu', {x: 200, opacity: 0}, {duration: 1, delay: 0.8, x: 0, opacity: 1});
+          gsap.fromTo('.hero-textbox', {yPercent: 40, opacity: 0}, {duration: 1, delay: 1.3, yPercent: -50, opacity: 1});
+     </script>
+</body>
+</html>
